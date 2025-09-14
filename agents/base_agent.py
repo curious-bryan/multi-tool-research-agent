@@ -1,5 +1,6 @@
 # agents/base_agent.py
-"""Base agent class providing common functionality for all agents.
+"""
+Base agent class providing common functionality for all agents.
 
 This module provides the BaseAgent abstract base class that serves as the foundation
 for all agent implementations in the multi-tool research project.  It provides:
@@ -12,17 +13,23 @@ for all agent implementations in the multi-tool research project.  It provides:
 Example:
     Creating a custom agent:
 
-    from agents.base_agent import BaseAgent
-    from tools.web_search_tool import WebSearchTool
-    
-    class MyCustomAgent(BaseAgent):
-        def __init__(self):
-            super().__init__("MyAgent", "Does custom research tasks")
-            self.add_tool(WebSearchTool())
-        
-        def execute(self, query: str, context=None):
-            # Implementation here
-            return {"response": "...", "sources": [...]}
+    >>> from agents.base_agent import BaseAgent
+    >>> from tools.web_search_tool import WebSearchTool
+    >>> 
+    >>> class MyCustomAgent(BaseAgent):
+    ...    def __init__(self):
+    ...        super().__init__("MyAgent", "Does custom research tasks")
+    ...        self.add_tool(WebSearchTool())
+    ...    
+    ...    def execute(self, query: str, context=None):
+    ...        # Implementation here
+    ...        return {"response": "...", "sources": [...]}
+
+    Using the agent:
+
+    >>> agent = MyCustomAgent()
+    >>> result = agent.execute("What is the capital of France?")
+    >>> print(result["response"])
 
 Usage Patterns:
 - Always call super().init() in subclass constructors
