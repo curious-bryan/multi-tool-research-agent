@@ -1,3 +1,4 @@
+# utils/config.py
 """Configuration management for the multi-tool research agent.
 
 This module handles all environment variables, API keys, and agent settings.
